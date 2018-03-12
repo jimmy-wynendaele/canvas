@@ -82,11 +82,18 @@
 	gridCanvas();
 
 
+	let colorArray = ["blue","black","red","green","purple"];
+
+	let m = 0;
+
 	let bbody = document.querySelector('#grid');
-	bbody.addEventListener("click",function(event){
+	bbody.addEventListener("mousemove",function(event){
+
+		for (let m=0;m<colorArray.length;m++){
 		let x = event.layerX;
 		let y = event.layerY; 
 
+		let randomColor = Math.floor(Math.random()*colorArray.length);
 
 		/*ctx.beginPath();
 		ctx.fillStyle = "red";
@@ -95,22 +102,30 @@
 		ctx.closePath();
 		ctx.fill();*/
 
+		console.log(randomColor);
+
+
+
+
 		for(let j = 0; j<=2000; j+=30){
 			if(x<=j+30 && x>j){
 				for(let k = 0; k<=2000; k+=30){
 					if(y<=k+30 && y>k){
 
+			
+		
 				ctx.beginPath();
-			ctx.fillStyle = "green";
+			ctx.fillStyle = colorArray[randomColor];
 			ctx.moveTo(j,k);
 			ctx.fillRect(j,k,30,30);
 			ctx.closePath();
 			ctx.fill();
-			}
+			
+		}
 		}
 	}
 }
-
+}
 	})
 
 

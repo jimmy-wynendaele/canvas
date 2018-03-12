@@ -60,10 +60,12 @@
 
 
 		ctx.beginPath();
+		ctx.fillStyle = "blue";
+		ctx.strokeStyle = "red";
 		ctx.bezierCurveTo(20,400,50,380,200,400);
 		ctx.bezierCurveTo(20,550,50,510,200,550);
 		ctx.closePath();
-		ctx.fillStyle = "blue";
+		ctx.stroke();
 		ctx.fill();
 
 
