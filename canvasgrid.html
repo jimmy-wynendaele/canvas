@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>grid canvas</title>
+</head>
+<body>
+	
+	<canvas id="grid" height="2000px" width="2000px"></canvas>
+
+
+<script>
+	let grid = document.querySelector("#grid");
+	let ctx = grid.getContext("2d");
+	
+	function gridCanvas(){
+		
+		let xhor= 0;
+		let yhor = 0;
+		let xver = 0;
+		let yver = 0;
+
+		for(let i=0; i<=500;i++){
+		
+
+			ctx.beginPath();
+			ctx.strokeStyle = "black";
+
+			
+
+			ctx.moveTo(xhor,yhor);
+			ctx.lineTo(xhor,2000);
+
+			ctx.closePath();
+
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.strokeStyle = "black";
+
+			
+
+			ctx.moveTo(xver,yver);
+			ctx.lineTo(2000,yver);
+
+			ctx.closePath();
+
+			ctx.stroke();
+
+			xhor += 30;
+			yver += 30;
+		}
+	}
+
+
+	function gridver(){
+		
+		let x= 20;
+		let y = 20;
+
+		for(let i=0; i<=100;i++){
+			
+			
+
+			ctx.beginPath();
+			ctx.strokeStyle = "black";
+
+			
+
+			ctx.moveTo(x,y);
+			ctx.lineTo(1000,y);
+
+			ctx.closePath();
+
+			ctx.stroke();
+
+			y += 20;
+		}
+	}
+
+
+	//gridver();
+	gridCanvas();
+
+
+	let bbody = document.querySelector('#grid');
+	bbody.addEventListener("click",function(event){
+		let x = event.layerX;
+		let y = event.layerY; 
+
+
+		/*ctx.beginPath();
+		ctx.fillStyle = "red";
+		ctx.moveTo(x,y);
+		ctx.fillRect(x,y,30,30);
+		ctx.closePath();
+		ctx.fill();*/
+
+		for(let j = 0; j<=2000; j+=30){
+			if(x<=j+30 && x>j){
+				for(let k = 0; k<=2000; k+=30){
+					if(y<=k+30 && y>k){
+
+				ctx.beginPath();
+			ctx.fillStyle = "green";
+			ctx.moveTo(j,k);
+			ctx.fillRect(j,k,30,30);
+			ctx.closePath();
+			ctx.fill();
+			}
+		}
+	}
+}
+
+	})
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<style>
+	body{
+		padding: 0;
+		margin : 0;
+	}
+</style>
+</body>
+</html>
